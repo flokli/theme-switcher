@@ -68,6 +68,7 @@ func setKittyTheme(ctx context.Context, theme string) error {
 }
 
 // setHelixTheme edits the helix config file and sends a -USR1 to all helix instances to reload.
+// We don't parse the TOML as there's no parser preserving comments.
 func setHelixTheme(ctx context.Context, theme string) error {
 	confDir, err := os.UserConfigDir()
 	if err != nil {
